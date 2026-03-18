@@ -1,8 +1,8 @@
 class Statusbar < Formula
   desc "Swift-native custom status bar for macOS"
   homepage "https://github.com/hytfjwr/StatusBar"
-  url "https://github.com/hytfjwr/StatusBar/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "30ebd94583271d799364e4b5b2d0638f40c38fba21d6ea44f91d18528b2e3296"
+  url "https://github.com/hytfjwr/StatusBar/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "82ff7d5154fd7407bdd766f94337691d2275eb8256a3e59cf387fcc80ec89051"
   license "MIT"
 
   bottle do
