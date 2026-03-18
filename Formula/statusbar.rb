@@ -2,11 +2,11 @@ class Statusbar < Formula
   desc "Swift-native custom status bar for macOS"
   homepage "https://github.com/hytfjwr/StatusBar"
   url "https://github.com/hytfjwr/StatusBar/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "PLACEHOLDER"
+  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
   license "MIT"
 
-  depends_on macos: :tahoe
   depends_on xcode: ["26.0", :build]
+  depends_on macos: :tahoe
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
@@ -45,6 +45,6 @@ class Statusbar < Formula
 
   test do
     assert_predicate prefix/"StatusBar.app/Contents/MacOS/StatusBar", :executable?
-    assert_predicate prefix/"StatusBar.app/Contents/Frameworks/libStatusBarKit.dylib", :exist?
+    assert_path_exists prefix/"StatusBar.app/Contents/Frameworks/libStatusBarKit.dylib"
   end
 end

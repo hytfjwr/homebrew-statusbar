@@ -2,11 +2,11 @@ class Statusbarkit < Formula
   desc "Plugin development SDK for StatusBar"
   homepage "https://github.com/hytfjwr/StatusBarKit"
   url "https://github.com/hytfjwr/StatusBarKit/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "PLACEHOLDER"
+  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
   license "MIT"
 
-  depends_on macos: :tahoe
   depends_on xcode: ["26.0", :build]
+  depends_on macos: :tahoe
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
@@ -39,6 +39,6 @@ class Statusbarkit < Formula
   end
 
   test do
-    assert_predicate lib/"libStatusBarKit.dylib", :exist?
+    assert_path_exists lib/"libStatusBarKit.dylib"
   end
 end
