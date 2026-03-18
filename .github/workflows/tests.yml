@@ -16,7 +16,7 @@ jobs:
       actions: read
       checks: read
       contents: read
-      pull-requests: read
+      pull-requests: write
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -44,3 +44,9 @@ jobs:
         with:
           name: bottles_${{ matrix.os }}
           path: "*.bottle.*"
+
+      - name: Add pr-pull label
+        if: github.event_name == 'pull_request'
+        run: gh pr edit ${{ github.event.pull_request.number }} --add-label pr-pull
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
