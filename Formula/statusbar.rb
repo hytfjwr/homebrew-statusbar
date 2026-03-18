@@ -5,6 +5,11 @@ class Statusbar < Formula
   sha256 "30ebd94583271d799364e4b5b2d0638f40c38fba21d6ea44f91d18528b2e3296"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/hytfjwr/homebrew-statusbar/releases/download/statusbar-0.3.0"
+    sha256 cellar: :any, arm64_tahoe: "0a5a14bbf2d637e7e1b8c3aeac78586c5c87f0436c5b079a35d1f66680984d03"
+  end
+
   depends_on xcode: ["26.0", :build]
   depends_on macos: :tahoe
 
