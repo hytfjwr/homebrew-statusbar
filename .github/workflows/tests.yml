@@ -44,15 +44,3 @@ jobs:
         with:
           name: bottles_${{ matrix.os }}
           path: "*.bottle.*"
-
-      - name: Add pr-pull label
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v8
-        with:
-          script: |
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              labels: ['pr-pull']
-            })
