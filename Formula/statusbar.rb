@@ -6,8 +6,8 @@ class Statusbar < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/hytfjwr/homebrew-statusbar/releases/download/statusbar-0.3.1"
-    sha256 cellar: :any, arm64_tahoe: "a78cdf35f694a986b4672a54f6d24c82472148e736a06e2ef826d97e0a770779"
+    root_url "https://github.com/hytfjwr/homebrew-statusbar/releases/download/statusbar-0.3.2"
+    sha256 arm64_tahoe: "6983ec0376cfddce3449caff25ca8e1e739b4eb8fddd17f6c41236b1c50966f3"
   end
 
   depends_on xcode: ["26.0", :build]
