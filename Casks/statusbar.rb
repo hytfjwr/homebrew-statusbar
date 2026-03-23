@@ -11,5 +11,10 @@ cask "statusbar" do
 
   app "StatusBar.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/StatusBar.app"]
+  end
+
   zap trash: "~/.config/statusbar"
 end
