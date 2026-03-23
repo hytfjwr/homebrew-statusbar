@@ -1,0 +1,42 @@
+name: Auto-merge cask updates
+
+on:
+  workflow_run:
+    workflows: ["brew test-bot"]
+    types:
+      - completed
+
+jobs:
+  auto-merge:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Get PR number
+        id: pr
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const prs = context.payload.workflow_run.pull_requests;
+            if (!prs || prs.length === 0) {
+              core.info('No PR found for this workflow run, skipping');
+              core.setOutput('found', 'false');
+              return;
+            }
+            core.setOutput('found', 'true');
+            core.setOutput('number', prs[0].number);
+
+      - name: Merge PR and delete branch
+        if: steps.pr.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          gh pr merge "$PR_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --squash \
+            --delete-branch
