@@ -33,6 +33,9 @@ class Statusbar < Formula
     end
 
     prefix.install app_bundle
+
+    # Symlink to /Applications for easy access
+    ln_sf prefix/"StatusBar.app", "/Applications/StatusBar.app"
   end
 
   def caveats
@@ -40,11 +43,10 @@ class Statusbar < Formula
       StatusBar.app has been installed to:
         #{prefix}/StatusBar.app
 
-      To start StatusBar, run:
-        open #{prefix}/StatusBar.app
+      A symlink has been created at /Applications/StatusBar.app
 
-      To link it to your Applications folder:
-        ln -sf #{prefix}/StatusBar.app /Applications/StatusBar.app
+      To start StatusBar, run:
+        open /Applications/StatusBar.app
     EOS
   end
 
