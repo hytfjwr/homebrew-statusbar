@@ -10,6 +10,7 @@ cask "statusbar" do
   depends_on macos: ">= :tahoe"
 
   app "StatusBar.app"
+  binary "#{appdir}/StatusBar.app/Contents/MacOS/sbar"
 
   postflight do
     system_command "/usr/bin/xattr",
