@@ -1,6 +1,6 @@
 cask "statusbar" do
-  version "0.14.0"
-  sha256 "9dccc327ea5cb2e8495268e9986c47fdcc052c09f8d6e586c96b111b33d34eac"
+  version "0.14.1"
+  sha256 "6d8d397497b6551424c7adb12ccf64954db73779ac441f9e9ff59cad79def5be"
 
   url "https://github.com/hytfjwr/StatusBar/releases/download/v#{version}/StatusBar.zip"
   name "StatusBar"
